@@ -190,9 +190,6 @@ class KeyBERT:
 
             # Calculate distances and extract keywords
             if use_mmr:
-                print(doc_embedding.shape, candidate_embeddings.shape)
-                print(doc)
-                print(candidates)
                 keywords = mmr_fast(doc_embedding, candidate_embeddings, candidates, top_n, diversity)
             elif use_maxsum:
                 keywords = max_sum_similarity(doc_embedding, candidate_embeddings, candidates, top_n, nr_candidates)
